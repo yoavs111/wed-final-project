@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Menu</title>
+<title>Menu view</title>
 <style type="text/css" ></style>
 <link rel="stylesheet" type="text/css" href="">
 <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
@@ -16,6 +16,17 @@
 
 
 <script>
+var menuData = null;
+	
+function getMenuData() {
+	$.ajax('http://www.elm.tools/final/gabig/menu', {
+  	success: function (data) {
+    	console.log(data); //{title: 'dfgf', sections: []}
+    	console.log('You have ', data.sections.length, 'sections');
+    	menuData = data;
+    }
+  });
+}
 
 </script>
 </body>
