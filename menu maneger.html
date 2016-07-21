@@ -5,11 +5,11 @@
 <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script>
-
+//model
 var menuModel = null;
 
 function getMenuData() {
-	$.ajax('http://www.elm.tools/final/gabig/menu', {
+	$.ajax('http://www.elm.tools/final/yoavs/menu', {
   	success: function (data) {
     	console.log(data); //{title: 'dfgf', sections: []}
     	console.log('You have ', data.sections.length, 'sections');
@@ -17,16 +17,57 @@ function getMenuData() {
     }
   });
 }
+getMenuData();
+</script>
+</head>
+<body>
+<div id="mainPage">
+<h1 id="menuTitle">menuTitle...</h1>
+	<div id="sections" >
+		<div id="Starters">
+			<div class="item">
+			    <hr>
+				<h3 class="nameOfItem">Summr Salad</h3>
+				<p class="descriptionOfItem">description: Fresh vegetables with lemon dressing</p>
+				<p class="priceOfItem">price: 23</p>
+				<hr>
+			</div>
+		</div>
+		<div id="Main Dishes"></div>
+		<div id="Dessert"></div>
+	</div>
+</div>
+
+
+<script>
+
+//model
+/*var menuModel = null;
+
+function getMenuData() {
+	$.ajax('http://www.elm.tools/final/yoavs/menu', {
+  	success: function (data) {
+    	console.log(data); //{title: 'dfgf', sections: []}
+    	console.log('You have ', data.sections.length, 'sections');
+    	menuModel = data;
+    }
+  });
+}
+getMenuData();*/
 
 //controller functions
 
 // view
+function render(menuModel) {
+   var menuTitle = document.getElementById('menuTitle');
+   menuTitle.innerText = menuModel.title;
+
+
+//menuModel.sections[0].items[0].price=23
+}
+
+render(menuModel);
 </script>
-</head>
-<body>
 &nbsp;
-
-
-
 </body>
 </html>

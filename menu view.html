@@ -19,7 +19,7 @@
 var menuData = null;
 	
 function getMenuData() {
-	$.ajax('http://www.elm.tools/final/gabig/menu', {
+	$.ajax('http://www.elm.tools/final/yoavs/menu', {
   	success: function (data) {
     	console.log(data); //{title: 'dfgf', sections: []}
     	console.log('You have ', data.sections.length, 'sections');
@@ -27,7 +27,7 @@ function getMenuData() {
     }
   });
 }
-
+getMenuData();
 </script>
 </body>
 </html>
