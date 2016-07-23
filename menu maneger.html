@@ -7,6 +7,9 @@
 	<script>
 
 	</script>
+	<style type="text/css">
+		
+	</style>
 </head>
 <body>
 	<div id="mainPage">
@@ -69,12 +72,25 @@ function renderItem(i,value) {
 	var item = document.createElement('div');
 	item.className = "item"; 
 	var line = document.createElement('hr');
+	//name
 	var nameOfItem = document.createElement('h3');
 	nameOfItem.className = "nameOfItem";
+	nameOfItem.innerText = value.name;
+	//description
 	var descriptionOfItem = document.createElement('p');
 	descriptionOfItem.className = "descriptionOfItem";
+	descriptionOfItem.innerText = value.description;
+	//price
 	var priceOfItem = document.createElement('p');
 	priceOfItem.className = "priceOfItem";
+	priceOfItem.innerText = value.price;
+    
+    item.appendChild(line);
+    item.appendChild(nameOfItem);
+    item.appendChild(descriptionOfItem);
+    item.appendChild(priceOfItem);
+    item.appendChild(line);
+    return item
 }
 
 
