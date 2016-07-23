@@ -67,13 +67,16 @@ function render(menuModel) {
 	var divSections = document.getElementById('sections');
     var objSections = menuModel.sections;
     for (var i = 0; i < objSections.length; i++) {
+    	divSections.appendChild(renedrnameOfSection(i,objSections[i]));
     	divSections.appendChild(renderSection(i,objSections[i]));
-
-   
-    	
+        var sectionsLine = document.createElement('hr');
+        sectionsLine.className= "sectionsLine";
+        divSections.appendChild('sectionsLine');
+        var brack = document.createElement('br');
+     	divSections.appendChild('brake');
     }
 
-    var divStarters = document.getElementById('Starters');
+    /*var divStarters = document.getElementById('Starters');
     var objStarters = menuModel.sections[0];
     for (var i = 0 ; i < objStarters.items.length; i++) {
     	divStarters.appendChild(renderItem(i,objStarters.items[i]));
@@ -87,42 +90,48 @@ function render(menuModel) {
     for (var i = 0 ; i < objStarters.items.length; i++) {
     	divStarters.appendChild(renderItem(i,objStarters.items[i]));
     }
-
+*/
 //menuModel.sections[0].items[0].price=23
 }
-
-function renderSection(i,objSections) {
+function renedrnameOfSection(i,objSections) {
 	 var nameOfSection = document.createElement('h2');
     nameOfSection.innerText = objSections.name;
 	nameOfSection.id = i;
 	nameOfSection.class = "nameOfSection";
-    	
+	return divSection
+}
+
+function renderSection(i,objSections) {
     var divSection = document.createElement('div');
 	divSection.id = objSections.name;
 	divSection.class = "divSection";
 	for (var j = 0 ; j < objSections.items.length; j++) {
     	divSection.appendChild(renderItem(i,j,objSections.items[j]));
     }
+	return divSection
 }
 
 function renderItem(i,j,ObjItem) {
 	var divItem = document.createElement('div');
 	divItem.className = "item"; 
 	var line = document.createElement('hr');
+
 	//name
 	var nameOfItem = document.createElement('h3');
 	nameOfItem.className = "nameOfItem";
-	nameOfItem.id = "i"+"j";
+	//nameOfItem.id = "i"+"j";?
 	nameOfItem.innerText = ObjItem.name;
+
 	//description
 	var descriptionOfItem = document.createElement('p');
 	descriptionOfItem.className = "descriptionOfItem";
-	descriptionOfItem.id = "i"+"j";
+	//descriptionOfItem.id = "i"+"j";?
 	descriptionOfItem.innerText = "description" + ObjItem.description;
+
 	//price
 	var priceOfItem = document.createElement('p');
 	priceOfItem.className = "priceOfItem";
-	priceOfItem.id = "i"+"j";
+	//priceOfItem.id = "i"+"j";?
 	priceOfItem.innerText ="price:..." + ObjItem.price;
 
 	divItem.appendChild(nameOfItem);
