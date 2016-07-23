@@ -8,13 +8,17 @@
 
 	</script>
 	<style type="text/css">
-		
+		.sectionsLine{
+			border-width: 3px;
+
+		}
 	</style>
 </head>
 <body>
 	<div id="mainPage">
 		<h1 id="menuTitle">menuTitle...</h1>
 		<div id="sections" >
+			<h2 id="starterSection" class="nameOfSection">nameOfSection...</h2>
 			<div id="Starters">
 				<div class="item">
 					<hr>
@@ -24,6 +28,9 @@
 					<hr>
 				</div>
 			</div>
+			<hr class="sectionsLine">
+			<br>
+			<h2 class="nameOfSection">Main Dishes</h2>
 			<div id="MainDishes"></div>
 			<div id="Dessert"></div>
 		</div>
@@ -56,41 +63,56 @@ function edit (){
 function render(menuModel) {
 	var menuTitle = document.getElementById('menuTitle');
 	menuTitle.innerText = menuModel.title;
-	var divStarters = document.getElementById('Starters');
-	var divMainDishes = document.getElementById('MainDishes');
-	var divStarters = document.getElementById('Dessert');
-	var objStarters = menuModel.sections[0];
-	var objMainDishes = menuModel.sections[1];
-	var objDessert = menuModel.sections[2];
-	for (var i = 0 ; i < objStarters.items.length; i++) {
-		divStarters.appendChild(renderItem(i,objStarters.items[i]));
-	}
+
+	//var divSections = document.getElementById('sections');
+	var starterSection = document.getElementById('starterSection');
+	starterSection.innerText = menuModel.sections[0].name;
+    /*var objSections = menuModel.sections;
+    for (var i = 0; i < objSections.length; i++) {
+
+    	objSections[i]
+    }*/
+
+    var divStarters = document.getElementById('Starters');
+    var objStarters = menuModel.sections[0];
+    for (var i = 0 ; i < objStarters.items.length; i++) {
+    	divStarters.appendChild(renderItem(i,objStarters.items[i]));
+    }
+
+    var divMainDishes = document.getElementById('MainDishes');
+    var objMainDishes = menuModel.sections[1];
+
+    var divStarters = document.getElementById('Dessert');	
+    var objDessert = menuModel.sections[2];
+    for (var i = 0 ; i < objStarters.items.length; i++) {
+    	divStarters.appendChild(renderItem(i,objStarters.items[i]));
+    }
 
 //menuModel.sections[0].items[0].price=23
 }
-function renderItem(i,value) {
-	var item = document.createElement('div');
-	item.className = "item"; 
+function renderItem(i,ObjItem) {
+	var divItem = document.createElement('div');
+	divItem.className = "item"; 
 	var line = document.createElement('hr');
 	//name
 	var nameOfItem = document.createElement('h3');
 	nameOfItem.className = "nameOfItem";
-	nameOfItem.innerText = value.name;
+	nameOfItem.innerText = ObjItem.name;
 	//description
 	var descriptionOfItem = document.createElement('p');
 	descriptionOfItem.className = "descriptionOfItem";
-	descriptionOfItem.innerText = value.description;
+	descriptionOfItem.innerText = ObjItem.description;
 	//price
 	var priceOfItem = document.createElement('p');
 	priceOfItem.className = "priceOfItem";
-	priceOfItem.innerText = value.price;
-    
-    item.appendChild(line);
-    item.appendChild(nameOfItem);
-    item.appendChild(descriptionOfItem);
-    item.appendChild(priceOfItem);
-    item.appendChild(line);
-    return item
+	priceOfItem.innerText = ObjItem.price;
+	
+	divItem.appendChild(line);
+	divItem.appendChild(nameOfItem);
+	divItem.appendChild(descriptionOfItem);
+	divItem.appendChild(priceOfItem);
+	divItem.appendChild(line);
+	return divItem
 }
 
 
