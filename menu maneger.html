@@ -1,58 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>menu maneger</title>
-<script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
-<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script>
+	<title>menu maneger</title>
+	<script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script>
 
-</script>
+	</script>
 </head>
 <body>
-<div id="mainPage">
-<h1 id="menuTitle">menuTitle...</h1>
-	<div id="sections" >
-		<div id="Starters">
-			<div class="item">
-			    <hr>
-				<h3 class="nameOfItem">Summr Salad</h3>
-				<p class="descriptionOfItem">description: Fresh vegetables with lemon dressing</p>
-				<p class="priceOfItem">price: 23</p>
-				<hr>
+	<div id="mainPage">
+		<h1 id="menuTitle">menuTitle...</h1>
+		<div id="sections" >
+			<div id="Starters">
+				<div class="item">
+					<hr>
+					<h3 class="nameOfItem">Summr Salad</h3>
+					<p class="descriptionOfItem">description: Fresh vegetables with lemon dressing</p>
+					<p class="priceOfItem">price: 23</p>
+					<hr>
+				</div>
 			</div>
+			<div id="MainDishes"></div>
+			<div id="Dessert"></div>
 		</div>
-		<div id="Main Dishes"></div>
-		<div id="Dessert"></div>
 	</div>
-</div>
 
 
-<script>
+	<script>
 
 //model
 var menuModel = null;
 
 function getMenuData() {
 	$.ajax('http://www.elm.tools/final/yoavs/menu', {
-  	success: function (data) {
+		success: function (data) {
     	console.log(data); //{title: 'dfgf', sections: []}
     	console.log('You have ', data.sections.length, 'sections');
     	menuModel = data;
     	render(menuModel);
     }
-  });
+});
 }
 
 
 //controller functions
+function edit (){
+	null;
+}
 
 // view
 function render(menuModel) {
-   var menuTitle = document.getElementById('menuTitle');
-   menuTitle.innerText = menuModel.title;
-
+	var menuTitle = document.getElementById('menuTitle');
+	menuTitle.innerText = menuModel.title;
+	var divStarters = document.getElementById('Starters');
+	var divMainDishes = document.getElementById('MainDishes');
+	var divStarters = document.getElementById('Dessert');
+	var objStarters = menuModel.sections[0];
+	var objMainDishes = menuModel.sections[1];
+	var objDessert = menuModel.sections[2];
+	for (var i = 0 ; i < objStarters.items.length; i++) {
+		divStarters.appendChild(renderItem(i,objStarters.items[i]));
+	}
 
 //menuModel.sections[0].items[0].price=23
+}
+function renderItem(i,value) {
+	
 }
 
 
