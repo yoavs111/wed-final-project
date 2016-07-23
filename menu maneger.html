@@ -18,21 +18,7 @@
 	<div id="mainPage">
 		<h1 id="menuTitle">menuTitle...</h1>
 		<div id="sections" >
-			<h2 id="starterSection" class="nameOfSection">nameOfSection...</h2>
-			<div id="Starters">
-				<div class="item">
-					<hr>
-					<h3 class="nameOfItem">Summr Salad</h3>
-					<p class="descriptionOfItem">description: Fresh vegetables with lemon dressing</p>
-					<p class="priceOfItem">price: 23</p>
-					
-				</div>
-			</div>
-			<hr class="sectionsLine">
-			<br>
-			<h2 class="nameOfSection">Main Dishes</h2>
-			<div id="MainDishes"></div>
-			<div id="Dessert"></div>
+			
 		</div>
 	</div>
 
@@ -71,26 +57,12 @@ function render(menuModel) {
     	divSections.appendChild(renderSection(i,objSections[i]));
         var sectionsLine = document.createElement('hr');
         sectionsLine.className= "sectionsLine";
-        divSections.appendChild('sectionsLine');
-        var brack = document.createElement('br');
-     	divSections.appendChild('brake');
+        divSections.appendChild(sectionsLine);
+        var brake = document.createElement('br');
+     	divSections.appendChild(brake);
     }
 
-    /*var divStarters = document.getElementById('Starters');
-    var objStarters = menuModel.sections[0];
-    for (var i = 0 ; i < objStarters.items.length; i++) {
-    	divStarters.appendChild(renderItem(i,objStarters.items[i]));
-    }
-
-    var divMainDishes = document.getElementById('MainDishes');
-    var objMainDishes = menuModel.sections[1];
-
-    var divStarters = document.getElementById('Dessert');	
-    var objDessert = menuModel.sections[2];
-    for (var i = 0 ; i < objStarters.items.length; i++) {
-    	divStarters.appendChild(renderItem(i,objStarters.items[i]));
-    }
-*/
+    
 //menuModel.sections[0].items[0].price=23
 }
 function renedrnameOfSection(i,objSections) {
@@ -98,7 +70,7 @@ function renedrnameOfSection(i,objSections) {
     nameOfSection.innerText = objSections.name;
 	nameOfSection.id = i;
 	nameOfSection.class = "nameOfSection";
-	return divSection
+	return nameOfSection;
 }
 
 function renderSection(i,objSections) {
@@ -108,7 +80,7 @@ function renderSection(i,objSections) {
 	for (var j = 0 ; j < objSections.items.length; j++) {
     	divSection.appendChild(renderItem(i,j,objSections.items[j]));
     }
-	return divSection
+	return divSection;
 }
 
 function renderItem(i,j,ObjItem) {
@@ -126,19 +98,19 @@ function renderItem(i,j,ObjItem) {
 	var descriptionOfItem = document.createElement('p');
 	descriptionOfItem.className = "descriptionOfItem";
 	//descriptionOfItem.id = "i"+"j";?
-	descriptionOfItem.innerText = "description" + ObjItem.description;
+	descriptionOfItem.innerText = "description :..." + ObjItem.description + ".";
 
 	//price
 	var priceOfItem = document.createElement('p');
 	priceOfItem.className = "priceOfItem";
 	//priceOfItem.id = "i"+"j";?
-	priceOfItem.innerText ="price:..." + ObjItem.price;
+	priceOfItem.innerText ="price :..." + ObjItem.price + ".";
 
 	divItem.appendChild(nameOfItem);
 	divItem.appendChild(descriptionOfItem);
 	divItem.appendChild(priceOfItem);
 	divItem.appendChild(line);
-	return divItem
+	return divItem;
 }
 
 
