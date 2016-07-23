@@ -25,7 +25,7 @@
 					<h3 class="nameOfItem">Summr Salad</h3>
 					<p class="descriptionOfItem">description: Fresh vegetables with lemon dressing</p>
 					<p class="priceOfItem">price: 23</p>
-					<hr>
+					
 				</div>
 			</div>
 			<hr class="sectionsLine">
@@ -64,14 +64,14 @@ function render(menuModel) {
 	var menuTitle = document.getElementById('menuTitle');
 	menuTitle.innerText = menuModel.title;
 
-	//var divSections = document.getElementById('sections');
-	var starterSection = document.getElementById('starterSection');
-	starterSection.innerText = menuModel.sections[0].name;
-    /*var objSections = menuModel.sections;
+	var divSections = document.getElementById('sections');
+    var objSections = menuModel.sections;
     for (var i = 0; i < objSections.length; i++) {
+    	divSections.appendChild(renderSection(i,objSections[i]));
 
-    	objSections[i]
-    }*/
+   
+    	
+    }
 
     var divStarters = document.getElementById('Starters');
     var objStarters = menuModel.sections[0];
@@ -90,24 +90,41 @@ function render(menuModel) {
 
 //menuModel.sections[0].items[0].price=23
 }
-function renderItem(i,ObjItem) {
+
+function renderSection(i,objSections) {
+	 var nameOfSection = document.createElement('h2');
+    nameOfSection.innerText = objSections.name;
+	nameOfSection.id = i;
+	nameOfSection.class = "nameOfSection";
+    	
+    var divSection = document.createElement('div');
+	divSection.id = objSections.name;
+	divSection.class = "divSection";
+	for (var j = 0 ; j < objSections.items.length; j++) {
+    	divSection.appendChild(renderItem(i,j,objSections.items[j]));
+    }
+}
+
+function renderItem(i,j,ObjItem) {
 	var divItem = document.createElement('div');
 	divItem.className = "item"; 
 	var line = document.createElement('hr');
 	//name
 	var nameOfItem = document.createElement('h3');
 	nameOfItem.className = "nameOfItem";
+	nameOfItem.id = "i"+"j";
 	nameOfItem.innerText = ObjItem.name;
 	//description
 	var descriptionOfItem = document.createElement('p');
 	descriptionOfItem.className = "descriptionOfItem";
-	descriptionOfItem.innerText = ObjItem.description;
+	descriptionOfItem.id = "i"+"j";
+	descriptionOfItem.innerText = "description" + ObjItem.description;
 	//price
 	var priceOfItem = document.createElement('p');
 	priceOfItem.className = "priceOfItem";
-	priceOfItem.innerText = ObjItem.price;
-	
-	divItem.appendChild(line);
+	priceOfItem.id = "i"+"j";
+	priceOfItem.innerText ="price:..." + ObjItem.price;
+
 	divItem.appendChild(nameOfItem);
 	divItem.appendChild(descriptionOfItem);
 	divItem.appendChild(priceOfItem);
