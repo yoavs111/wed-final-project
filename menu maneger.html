@@ -74,7 +74,7 @@ function renedrnameOfSection(i,objSections) {
 function renderSection(i,objSections) {
 	var divSection = document.createElement('div');
 	divSection.id = objSections.name;
-	divSection.class = "divSection";
+	divSection.class = "Section";
 	for (var j = 0 ; j < objSections.items.length; j++) {
 		divSection.appendChild(renderItem(i,j,objSections.items[j]));
 	}
