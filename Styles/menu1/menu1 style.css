@@ -5,7 +5,6 @@
 
 #menuTitle{
     font-style: normal;
-     font-family: "Times New Roman", Times, serif;
      text-align: center;
      margin-top: 20px;
      color: rgb(118, 63, 0);
@@ -17,13 +16,13 @@
 
 .nameOfSection{
     font-style: normal;
-     font-family: "Times New Roman", Times, serif;
      text-align: center;
      margin-top: 20px;
-     color: rgba(223, 209, 101, 0.32);
+     margin-left: 125px;
+     margin-right: 125px;
+     color: rgba(250, 244, 210, 0.99);
      background: rgb(118, 63, 0);
-     border: 1px;
-     border-color: rgb(118, 63, 0);
+
 }
 
 .Section{
@@ -35,21 +34,19 @@
 }
 
 .nameOfItem{
-    font-style: inherit;
-     font-family: "Times New Roman", Times, serif;
+    font-style: normal;
      text-align: center;
      
 }
 
 .descriptionOfItem{
     font-style: normal;
-     font-family: "Times New Roman", Times, serif;
+    
      text-align: center;
     
 }
 
 .priceOfItem{
-    font-style: oblique;
-     font-family: "Times New Roman", Times, serif;
+    font-style: italic;
      text-align: center;
 }
