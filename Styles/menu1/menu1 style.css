@@ -16,10 +16,14 @@
 }
 
 .nameOfSection{
-    font-style: initial;
+    font-style: normal;
      font-family: "Times New Roman", Times, serif;
      text-align: center;
      margin-top: 20px;
+     color: rgba(223, 209, 101, 0.32);
+     background: rgb(118, 63, 0);
+     border: 1px;
+     border-color: rgb(118, 63, 0);
 }
 
 .Section{
