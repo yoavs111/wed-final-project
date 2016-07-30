@@ -1,6 +1,15 @@
+#frameOfMenu{
+    background: white;
+    margin: auto;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid black;
+}
+
 #mainPage{
     background: rgba(223, 209, 101, 0.32);
     border: 4px solid black;
+    width: 816px;
+    height: 1056px; 
 }
 
 #menuTitle{
@@ -11,15 +20,17 @@
 }
 
 #sections{
-    
+    margin-right: 40px;
+    margin-left: 50px;
+
 }
 
 .nameOfSection{
     font-style: normal;
      text-align: center;
      margin-top: 20px;
-     margin-left: 125px;
-     margin-right: 125px;
+     margin-left: 10px;
+     margin-right: 10px;
      color: rgba(250, 244, 210, 0.99);
      background: rgb(118, 63, 0);
      /*border: 1px; ?
@@ -39,17 +50,22 @@
 .nameOfItem{
     font-style: normal;
      text-align: center;
+     color: rgb(118, 63, 0);
      
 }
 
-.descriptionOfItem{
-    font-style: normal;
-    
+p{
+	font-style: normal;
+	 color: rgb(118, 63, 0);
+
+}
+
+.descriptionOfItem{    
      text-align: center;
     
 }
 
 .priceOfItem{
-    font-style: italic;
-     text-align: center;
+    size: 10px;
+     text-align: right;
 }
