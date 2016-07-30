@@ -67,14 +67,14 @@ function renedrnameOfSection(i,objSections) {
 	var nameOfSection = document.createElement('h2');
 	nameOfSection.innerText = objSections.name;
 	nameOfSection.id = i;
-	nameOfSection.class = "nameOfSection";
+	nameOfSection.className = "nameOfSection";
 	return nameOfSection;
 }
 
 function renderSection(i,objSections) {
 	var divSection = document.createElement('div');
 	divSection.id = objSections.name;
-	divSection.class = "Section";
+	divSection.className = "Section";
 	for (var j = 0 ; j < objSections.items.length; j++) {
 		divSection.appendChild(renderItem(i,j,objSections.items[j]));
 	}
