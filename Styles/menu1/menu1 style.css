@@ -1,10 +1,3 @@
-#frameOfMenu{
-    background: white;
-    margin: auto;
-    padding: 10px 10px 10px 10px;
-    border: 1px solid black;
-}
-
 #mainPage{
     background: rgba(223, 209, 101, 0.32);
     border: 4px solid black;
@@ -20,17 +13,17 @@
 }
 
 #sections{
-    margin-right: 40px;
-    margin-left: 50px;
+    margin-right: 50px;
+    margin-left: 200px;
 
 }
 
 .nameOfSection{
     font-style: normal;
-     text-align: center;
+     text-align: start;
      margin-top: 20px;
-     margin-left: 10px;
-     margin-right: 10px;
+     margin-right: 25px;
+     padding-left: 10px;
      color: rgba(250, 244, 210, 0.99);
      background: rgb(118, 63, 0);
      /*border: 1px; ?
@@ -40,7 +33,7 @@
 }
 
 .Section{
-    
+    margin-left: 10px;
 }
 
 .item{
@@ -49,8 +42,9 @@
 
 .nameOfItem{
     font-style: normal;
-     text-align: center;
+     text-align: justify;
      color: rgb(118, 63, 0);
+     margin-bottom: 0px;
      
 }
 
@@ -60,8 +54,9 @@ p{
 
 }
 
-.descriptionOfItem{    
-     text-align: center;
+.descriptionOfItem{ 
+   margin-top: 1px;
+     text-align: justify;
     
 }
 
