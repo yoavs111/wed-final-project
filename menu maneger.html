@@ -35,16 +35,32 @@ function getMenuData() {
 
 
 //controller functions
-function edit (){
-	null;
+function saveChange (){
+	var menuTitle = document.getElementById('menuTitle');
+	menuModel.title =  menuTitle.innerText;
+    updateMenuData(menuModel);
+    getMenuData();
+}
+
+function updateMenuData(menuModel) {
+	$.ajax('http://www.elm.tools/final/yoavs/menu', {
+		type: 'PUT',
+		url: 'http://www.elm.tools/final/yoavs/menu',
+		dataType: 'json',
+		contentType: 'application/json',
+		data: JSON.stringify(menuModel),
+		success: function () {
+			console.log('saved!');
+		}
+	});
 }
 
 // view
 function render(menuModel) {
 	var mainMenuPage = document.getElementById('mainPage');
 	//Menu Title
-	var menuTitle = document.createElement('h1');
-	menuTitle.innerText = menuModel.title;
+	var menuTitle = document.createElement('input');
+	menuTitle.value = menuModel.title;
 	menuTitle.id = "menuTitle";
 	mainMenuPage.appendChild(menuTitle);
     //Sections
@@ -60,7 +76,14 @@ function render(menuModel) {
     	var brake = document.createElement('br');
     	divSections.appendChild(brake);
     }
-    mainMenuPage.appendChild(divSections); 
+    mainMenuPage.appendChild(divSections);
+
+    var saveButton = document.createElement('button');
+    saveButton.addEventListener('click', function () {
+				saveChange ();
+				});
+    saveButton.textContent = 'save';
+    mainMenuPage.appendChild(saveButton);
 }
 
 function renedrnameOfSection(i,objSections) {
