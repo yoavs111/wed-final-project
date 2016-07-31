@@ -70,20 +70,17 @@ function renderItem(i,j,ObjItem) {
 	//name
 	var nameOfItem = document.createElement('h3');
 	nameOfItem.className = "nameOfItem";
-	//nameOfItem.id = "i"+"j";?
 	nameOfItem.innerText = ObjItem.name;
 
 	//description
 	var descriptionOfItem = document.createElement('p');
 	descriptionOfItem.className = "descriptionOfItem";
-	//descriptionOfItem.id = "i"+"j";?
-	descriptionOfItem.innerText = "description :..." + ObjItem.description + ".";
+	descriptionOfItem.innerText =  ObjItem.description + ".";
 
 	//price
 	var priceOfItem = document.createElement('p');
 	priceOfItem.className = "priceOfItem";
-	//priceOfItem.id = "i"+"j";?
-	priceOfItem.innerText ="price :..." + ObjItem.price + ".";
+	priceOfItem.innerText = ObjItem.price;
 
 	divItem.appendChild(nameOfItem);
 	divItem.appendChild(descriptionOfItem);
