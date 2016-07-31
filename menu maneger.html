@@ -37,9 +37,8 @@ function getMenuData() {
 //controller functions
 function saveChange (){
 	var menuTitle = document.getElementById('menuTitle');
-	menuModel.title =  menuTitle.innerText;
+	menuModel.title =  menuTitle.value;
     updateMenuData(menuModel);
-    getMenuData();
 }
 
 function updateMenuData(menuModel) {
