@@ -61,29 +61,29 @@ function rmoveItem(){
 function saveChange (){
 	var menuTitle = document.getElementById('menuTitle');
 	menuModel.title =  menuTitle.value;
-    
-    var objSections = menuModel.sections;
-    for (var i = 0; i < objSections.length; i++)
-    {
-    	var NameOfSection = document.getElementById(i);
-    	objSections[i].name =  NameOfSection.value;
-    	for (var j = 0; j < objSections[i].items.length; j++)
-    	{
-    		var idOfItem = 0;
-    		var nameOfItem = document.getElementById(""+i+"."+j+"."+idOfItem+"");
-    		idOfItem++;
-    		var descriptionOfItem = document.getElementById(""+i+"."+j+"."+idOfItem+"");
-    		idOfItem++;
-    		var priceOfItem = document.getElementById(""+i+"."+j+"."+idOfItem+"");
-    		idOfItem++;
+	
+	var objSections = menuModel.sections;
+	for (var i = 0; i < objSections.length; i++)
+	{
+		var NameOfSection = document.getElementById(i);
+		objSections[i].name =  NameOfSection.value;
+		for (var j = 0; j < objSections[i].items.length; j++)
+		{
+			var idOfItem = 0;
+			var nameOfItem = document.getElementById(""+i+"."+j+"."+idOfItem+"");
+			idOfItem++;
+			var descriptionOfItem = document.getElementById(""+i+"."+j+"."+idOfItem+"");
+			idOfItem++;
+			var priceOfItem = document.getElementById(""+i+"."+j+"."+idOfItem+"");
+			idOfItem++;
 
-            objSections[i].items[j].name = nameOfItem.value;
-            objSections[i].items[j].description = descriptionOfItem.value;
-            objSections[i].items[j].price = priceOfItem.value;
-    	}
-    }
-    updateMenuData(menuModel);
-    //render(menuModel);
+			objSections[i].items[j].name = nameOfItem.value;
+			objSections[i].items[j].description = descriptionOfItem.value;
+			objSections[i].items[j].price = priceOfItem.value;
+		}
+	}
+	updateMenuData(menuModel);
+	render(menuModel);
 }
 
 function updateMenuData(menuModel) {
@@ -101,7 +101,8 @@ function updateMenuData(menuModel) {
 
 // view
 function render(menuModel) {
-	var mainMenuPage = document.getElementById('mainPage');	
+	var mainMenuPage = document.getElementById('mainPage');
+	mainMenuPage.innerHTML = '';	
 	//Menu Title
 	var menuTitle = document.createElement('input');
 	menuTitle.value = menuModel.title;
@@ -124,8 +125,8 @@ function render(menuModel) {
 
     var saveButton = document.createElement('button');
     saveButton.addEventListener('click', function () {
-				saveChange ();
-				});
+    	saveChange ();
+    });
     saveButton.textContent = 'save';
     mainMenuPage.appendChild(saveButton);
 }
@@ -152,27 +153,27 @@ function renderItem(i,j,ObjItem) {
 	var divItem = document.createElement('div');
 	divItem.className = "item"; 
 	var line = document.createElement('hr');
-    var idOfItem = 0;
+	var idOfItem = 0;
 	//name
 	var nameOfItem = document.createElement('input');
 	nameOfItem.className = "nameOfItem";
 	nameOfItem.id = ""+i+"."+j+"."+idOfItem+"";
 	nameOfItem.value = ObjItem.name;
-    idOfItem++;
+	idOfItem++;
 
 	//description
 	var descriptionOfItem = document.createElement('textarea');
 	descriptionOfItem.className = "descriptionOfItem";
 	descriptionOfItem.id = ""+i+"."+j+"."+idOfItem+"";
 	descriptionOfItem.value = ObjItem.description;
-    idOfItem++;
+	idOfItem++;
 
 	//price
 	var priceOfItem = document.createElement('input');
 	priceOfItem.className = "priceOfItem";
 	priceOfItem.id = ""+i+"."+j+"."+idOfItem+"";
 	priceOfItem.value = ObjItem.price;
-    idOfItem++;
+	idOfItem++;
 
 	divItem.appendChild(nameOfItem);
 	divItem.appendChild(descriptionOfItem);
