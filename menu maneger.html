@@ -63,6 +63,20 @@ function saveChange (){
     {
     	var NameOfSection = document.getElementById(i);
     	objSections[i].name =  NameOfSection.value;
+    	for (var j = 0; j < objSections[i].items.length; j++)
+    	{
+    		var idOfItem = 0;
+    		var nameOfItem = document.getElementById(""+i+"."+j+"."+idOfItem+"");
+    		idOfItem++;
+    		var descriptionOfItem = document.getElementById(""+i+"."+j+"."+idOfItem+"");
+    		idOfItem++;
+    		var priceOfItem = document.getElementById(""+i+"."+j+"."+idOfItem+"");
+    		idOfItem++;
+
+            objSections[i].items[j].name = nameOfItem.value;
+            objSections[i].items[j].description = descriptionOfItem.value;
+            objSections[i].items[j].price = priceOfItem.value;
+    	}
     }
 }
 
@@ -132,24 +146,27 @@ function renderItem(i,j,ObjItem) {
 	var divItem = document.createElement('div');
 	divItem.className = "item"; 
 	var line = document.createElement('hr');
-
+    var idOfItem = 0;
 	//name
 	var nameOfItem = document.createElement('input');
 	nameOfItem.className = "nameOfItem";
-	//nameOfItem.id = "i"+"j";?
+	nameOfItem.id = ""+i+"."+j+"."+idOfItem+"";
 	nameOfItem.value = ObjItem.name;
+    idOfItem++;
 
 	//description
 	var descriptionOfItem = document.createElement('textarea');
 	descriptionOfItem.className = "descriptionOfItem";
-	//descriptionOfItem.id = "i"+"j";?
+	descriptionOfItem.id = ""+i+"."+j+"."+idOfItem+"";
 	descriptionOfItem.value = "description: " + ObjItem.description + ".";
+    idOfItem++;
 
 	//price
 	var priceOfItem = document.createElement('input');
 	priceOfItem.className = "priceOfItem";
-	//priceOfItem.id = "i"+"j";?
+	priceOfItem.id = ""+i+"."+j+"."+idOfItem+"";
 	priceOfItem.value ="price: " + ObjItem.price;
+    idOfItem++;
 
 	divItem.appendChild(nameOfItem);
 	divItem.appendChild(descriptionOfItem);
