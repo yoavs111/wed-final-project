@@ -42,7 +42,8 @@ function saveChange (){
     var objSections = menuModel.sections;
     for (var i = 0; i < objSections.length; i++)
     {
-    	var NameOfSection = document.getElementById('i');
+    	var NameOfSection = document.getElementById(i);
+    	objSections[i].name =  NameOfSection.value;
     }
 }
 
