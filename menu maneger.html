@@ -39,6 +39,11 @@ function saveChange (){
 	var menuTitle = document.getElementById('menuTitle');
 	menuModel.title =  menuTitle.value;
     updateMenuData(menuModel);
+    var objSections = menuModel.sections;
+    for (var i = 0; i < objSections.length; i++)
+    {
+    	var NameOfSection = document.getElementById('i');
+    }
 }
 
 function updateMenuData(menuModel) {
@@ -67,7 +72,7 @@ function render(menuModel) {
     divSections.id = "sections";
     var objSections = menuModel.sections;
     for (var i = 0; i < objSections.length; i++) {
-    	divSections.appendChild(renedrnameOfSection(i,objSections[i]));
+    	divSections.appendChild(renedrNameOfSection(i,objSections[i]));
     	divSections.appendChild(renderSection(i,objSections[i]));
     	var sectionsLine = document.createElement('hr');
     	sectionsLine.className = "sectionsLine";
@@ -85,9 +90,9 @@ function render(menuModel) {
     mainMenuPage.appendChild(saveButton);
 }
 
-function renedrnameOfSection(i,objSections) {
-	var nameOfSection = document.createElement('h2');
-	nameOfSection.innerText = objSections.name;
+function renedrNameOfSection(i,objSections) {
+	var nameOfSection = document.createElement('input');
+	nameOfSection.value = objSections.name;
 	nameOfSection.id = i;
 	nameOfSection.className = "nameOfSection";
 	return nameOfSection;
