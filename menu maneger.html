@@ -54,10 +54,14 @@ function getMenuData() {
 
 
 //controller functions
+function rmoveItem(){
+	//body..
+}
+
 function saveChange (){
 	var menuTitle = document.getElementById('menuTitle');
 	menuModel.title =  menuTitle.value;
-    updateMenuData(menuModel);
+    
     var objSections = menuModel.sections;
     for (var i = 0; i < objSections.length; i++)
     {
@@ -78,6 +82,8 @@ function saveChange (){
             objSections[i].items[j].price = priceOfItem.value;
     	}
     }
+    updateMenuData(menuModel);
+    //render(menuModel);
 }
 
 function updateMenuData(menuModel) {
@@ -158,14 +164,14 @@ function renderItem(i,j,ObjItem) {
 	var descriptionOfItem = document.createElement('textarea');
 	descriptionOfItem.className = "descriptionOfItem";
 	descriptionOfItem.id = ""+i+"."+j+"."+idOfItem+"";
-	descriptionOfItem.value = "description: " + ObjItem.description + ".";
+	descriptionOfItem.value = ObjItem.description;
     idOfItem++;
 
 	//price
 	var priceOfItem = document.createElement('input');
 	priceOfItem.className = "priceOfItem";
 	priceOfItem.id = ""+i+"."+j+"."+idOfItem+"";
-	priceOfItem.value ="price: " + ObjItem.price;
+	priceOfItem.value = ObjItem.price;
     idOfItem++;
 
 	divItem.appendChild(nameOfItem);
