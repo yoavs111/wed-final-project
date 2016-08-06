@@ -12,6 +12,25 @@
 			border-width: 3px;
 
 		}
+		input{
+			margin: 5px 5px 5px 5px;
+		}
+		#menuTitle{
+			border-bottom: 4px solid black;
+			margin-bottom: 15px; 
+		}
+		.nameOfSection{
+			border-bottom: 2px solid black;
+			margin-bottom: 10px; 
+		}
+		textarea{
+			margin: 5px 5px 5px 5px;
+			width: 350px;
+			height: 150px;
+		}
+		.item{
+			display: table-caption;
+		}
 	</style>
 </head>
 <body>
@@ -62,7 +81,7 @@ function updateMenuData(menuModel) {
 
 // view
 function render(menuModel) {
-	var mainMenuPage = document.getElementById('mainPage');
+	var mainMenuPage = document.getElementById('mainPage');	
 	//Menu Title
 	var menuTitle = document.createElement('input');
 	menuTitle.value = menuModel.title;
@@ -115,22 +134,22 @@ function renderItem(i,j,ObjItem) {
 	var line = document.createElement('hr');
 
 	//name
-	var nameOfItem = document.createElement('h3');
+	var nameOfItem = document.createElement('input');
 	nameOfItem.className = "nameOfItem";
 	//nameOfItem.id = "i"+"j";?
-	nameOfItem.innerText = ObjItem.name;
+	nameOfItem.value = ObjItem.name;
 
 	//description
-	var descriptionOfItem = document.createElement('p');
+	var descriptionOfItem = document.createElement('textarea');
 	descriptionOfItem.className = "descriptionOfItem";
 	//descriptionOfItem.id = "i"+"j";?
-	descriptionOfItem.innerText = "description: " + ObjItem.description + ".";
+	descriptionOfItem.value = "description: " + ObjItem.description + ".";
 
 	//price
-	var priceOfItem = document.createElement('p');
+	var priceOfItem = document.createElement('input');
 	priceOfItem.className = "priceOfItem";
 	//priceOfItem.id = "i"+"j";?
-	priceOfItem.innerText ="price: " + ObjItem.price;
+	priceOfItem.value ="price: " + ObjItem.price;
 
 	divItem.appendChild(nameOfItem);
 	divItem.appendChild(descriptionOfItem);
