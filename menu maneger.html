@@ -42,7 +42,7 @@ var menuModel = null;
 function getMenuData() {
 	$.ajax('http://www.elm.tools/final/yoavs/menu', {
 		success: function (data) {
-    	console.log(data); //{title: 'dfgf', sections: []}
+    	console.log(data);
     	console.log('You have ', data.sections.length, 'sections');
     	menuModel = data;
     	render(menuModel);
@@ -111,24 +111,24 @@ function saveChange (){
 		objSections[i].name =  NameOfSection.value;
 		for (var j = 0; j < objSections[i].items.length; j++)
 		{
-			var idOfItem = 0;
-			var nameOfItem = document.getElementById(""+i+"."+j+"."+idOfItem+"");
+			var idOfItemCategory = 0;
+			var nameOfItem = document.getElementById(""+i+"."+j+"."+idOfItemCategory+"");
 			if(!checkValue(nameOfItem.type,nameOfItem.value))
 			{
 				console.log("fail to save change");
 				return;
 			}
-			idOfItem++;
+			idOfItemCategory++;
 
-			var descriptionOfItem = document.getElementById(""+i+"."+j+"."+idOfItem+"");
+			var descriptionOfItem = document.getElementById(""+i+"."+j+"."+idOfItemCategory+"");
 			if(isValueEmpty(descriptionOfItem.value))
 			{
 				console.log("fail to save change");
 				return;
 			}
-			idOfItem++;
+			idOfItemCategory++;
 
-			var priceOfItem = document.getElementById(""+i+"."+j+"."+idOfItem+"");
+			var priceOfItem = document.getElementById(""+i+"."+j+"."+idOfItemCategory+"");
 			if(!checkValue(priceOfItem.type,priceOfItem.value))
 			{
 				console.log("fail to save change");
@@ -213,29 +213,28 @@ function renderItem(i,j,ObjItem) {
 	var divItem = document.createElement('div');
 	divItem.className = "item"; 
 	var line = document.createElement('hr');
-	var idOfItem = 0;
+	var idOfItemCategory = 0;
 	//name
 	var nameOfItem = document.createElement('input');
 	nameOfItem.className = "nameOfItem";
-	nameOfItem.id = ""+i+"."+j+"."+idOfItem+"";
+	nameOfItem.id = ""+i+"."+j+"."+idOfItemCategory+"";
 	nameOfItem.type = "text";
 	nameOfItem.value = ObjItem.name;
-	idOfItem++;
+	idOfItemCategory++;
 
 	//description
 	var descriptionOfItem = document.createElement('textarea');
 	descriptionOfItem.className = "descriptionOfItem";
-	descriptionOfItem.id = ""+i+"."+j+"."+idOfItem+"";
+	descriptionOfItem.id = ""+i+"."+j+"."+idOfItemCategory+"";
 	descriptionOfItem.value = ObjItem.description;
-	idOfItem++;
+	idOfItemCategory++;
 
 	//price
 	var priceOfItem = document.createElement('input');
 	priceOfItem.className = "priceOfItem";
-	priceOfItem.id = ""+i+"."+j+"."+idOfItem+"";
+	priceOfItem.id = ""+i+"."+j+"."+idOfItemCategory+"";
 	priceOfItem.type = "number";
 	priceOfItem.value = ObjItem.price;
-	//idOfItem++;
 
 	divItem.appendChild(nameOfItem);
 	divItem.appendChild(descriptionOfItem);
