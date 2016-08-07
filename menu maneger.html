@@ -4,9 +4,6 @@
 	<title>menu maneger</title>
 	<script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
 	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-	<script>
-
-	</script>
 	<style type="text/css">
 		.sectionsLine{
 			border-width: 3px;
@@ -54,6 +51,40 @@ function getMenuData() {
 
 
 //controller functions
+function isValueEmpty(value) {
+	if (elementValue === "" || elementValue === null) {
+		console.log("no value!");
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+function ckeckNumber(number) {
+	if (number > 0) {
+		return true;
+	} 
+	else {
+		console.log("the number is negative");
+		return false;
+	}
+}
+function checkValue(elementType,elementValue) {
+	if (!isValueEmpty(elementValue)) {
+		if (elementType == text) {
+           return true;
+		}
+		else if (elementType == "number" && ckeckNumber(elementValue)) {
+           return true;
+		}
+	} 
+	else {
+		console.log("wrong input!");
+      return false;
+	}
+}
+
 function rmoveItem(){
 	//body..
 }
@@ -107,6 +138,7 @@ function render(menuModel) {
 	var menuTitle = document.createElement('input');
 	menuTitle.value = menuModel.title;
 	menuTitle.id = "menuTitle";
+	menuTitle.type = "text";
 	mainMenuPage.appendChild(menuTitle);
     //Sections
     var divSections = document.createElement('div');
@@ -136,6 +168,7 @@ function renedrNameOfSection(i,objSections) {
 	nameOfSection.value = objSections.name;
 	nameOfSection.id = i;
 	nameOfSection.className = "nameOfSection";
+	nameOfSection.type = "text";
 	return nameOfSection;
 }
 
@@ -158,6 +191,7 @@ function renderItem(i,j,ObjItem) {
 	var nameOfItem = document.createElement('input');
 	nameOfItem.className = "nameOfItem";
 	nameOfItem.id = ""+i+"."+j+"."+idOfItem+"";
+	nameOfItem.type = "text";
 	nameOfItem.value = ObjItem.name;
 	idOfItem++;
 
@@ -172,8 +206,9 @@ function renderItem(i,j,ObjItem) {
 	var priceOfItem = document.createElement('input');
 	priceOfItem.className = "priceOfItem";
 	priceOfItem.id = ""+i+"."+j+"."+idOfItem+"";
+	priceOfItem.type = "number";
 	priceOfItem.value = ObjItem.price;
-	idOfItem++;
+	//idOfItem++;
 
 	divItem.appendChild(nameOfItem);
 	divItem.appendChild(descriptionOfItem);
