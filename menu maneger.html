@@ -24,6 +24,7 @@
 			margin: 5px 5px 5px 5px;
 			width: 350px;
 			height: 150px;
+			text-align: justify;
 		}
 		.item{
 			display: table-caption;
@@ -52,7 +53,7 @@ function getMenuData() {
 
 //controller functions
 function isValueEmpty(value) {
-	if (elementValue === "" || elementValue === null) {
+	if (value === "" || value === null) {
 		console.log("no value!");
 		return true;
 	}
@@ -72,16 +73,16 @@ function ckeckNumber(number) {
 }
 function checkValue(elementType,elementValue) {
 	if (!isValueEmpty(elementValue)) {
-		if (elementType == text) {
-           return true;
+		if (elementType == "text") {
+			return true;
 		}
 		else if (elementType == "number" && ckeckNumber(elementValue)) {
-           return true;
+			return true;
 		}
 	} 
 	else {
 		console.log("wrong input!");
-      return false;
+		return false;
 	}
 }
 
@@ -91,22 +92,48 @@ function rmoveItem(){
 
 function saveChange (){
 	var menuTitle = document.getElementById('menuTitle');
+	if(!checkValue(menuTitle.type,menuTitle.value))
+	{
+		console.log("fail to save change");
+		return;
+	}
 	menuModel.title =  menuTitle.value;
 	
 	var objSections = menuModel.sections;
 	for (var i = 0; i < objSections.length; i++)
 	{
 		var NameOfSection = document.getElementById(i);
+		if(!checkValue(NameOfSection.type,NameOfSection.value))
+		{
+			console.log("fail to save change");
+			return;
+		}
 		objSections[i].name =  NameOfSection.value;
 		for (var j = 0; j < objSections[i].items.length; j++)
 		{
 			var idOfItem = 0;
 			var nameOfItem = document.getElementById(""+i+"."+j+"."+idOfItem+"");
+			if(!checkValue(nameOfItem.type,nameOfItem.value))
+			{
+				console.log("fail to save change");
+				return;
+			}
 			idOfItem++;
+
 			var descriptionOfItem = document.getElementById(""+i+"."+j+"."+idOfItem+"");
+			if(isValueEmpty(descriptionOfItem.value))
+			{
+				console.log("fail to save change");
+				return;
+			}
 			idOfItem++;
+
 			var priceOfItem = document.getElementById(""+i+"."+j+"."+idOfItem+"");
-			idOfItem++;
+			if(!checkValue(priceOfItem.type,priceOfItem.value))
+			{
+				console.log("fail to save change");
+				return;
+			}
 
 			objSections[i].items[j].name = nameOfItem.value;
 			objSections[i].items[j].description = descriptionOfItem.value;
